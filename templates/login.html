@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>PassWarden Password Manager</title>
 </head>
 
@@ -13,12 +13,12 @@
     <main class="login--main">
         <figure class="login--main__logo">
             <a href="{{url_for('home')}}">
-                <img src="images/Logo2.jpeg" alt="PassWarden">
+                <img src="/static/images/Logo2.jpeg" alt="PassWarden">
             </a>
         </figure>
 
         <figure class="login--main__image">
-            <img src="images/login.jpg" alt="/">
+            <img src="/static/images/login.jpg" alt="/">
         </figure>
 
         <form action="/login" method="post" class="login--main__form">
