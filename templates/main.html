@@ -1,21 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/templates/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <script>const session_username = "{{username}}"</script>
-    <script defer src="js/main.js">
-    </script>
+    <script defer src="/static/js/main.js"></script>
     <title>PassWarden Password Manager</title>
+    <style>
+        .dashboard {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dashboard__logo img {
+            width: 200px;
+            height: auto;
+        }
+        .dashboard__heading {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        .dashboard__main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .dashboard__main--left {
+            margin-right: 20px;
+        }
+        .dashboard__buttons {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dashboard__button {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .dashboard__button:hover {
+            background-color: #0056b3;
+        }
+        .dashboard__main--right {
+            flex: 1;
+            display: table;
+            flex-direction: column;
+        }
+        .dashboard__generate--password,
+        .dashboard__view--password,
+        .dashboard__search--password {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .password--table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .password--table th, .password--table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        .password--table th {
+            background-color: #f2f2f2;
+        }
+        .password--table td:last-child {
+            text-align: center;
+        }
+        .success__message {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body class="dashboard">
     <figure class="dashboard__logo">
         <a href="{{url_for('home')}}">
-            <img src="/templates/images/Logo2.jpeg" alt="E vault logo">
+            <img src="/static/images/Logo2.jpeg" alt="PassWarden logo">
         </a>
     </figure>
 
@@ -47,43 +127,43 @@
                     <label>
                         <input type="text" class="gen--pass" placeholder="Password" required>
                     </label>
-                    <a class="nav__register">Generate</a>
+                    <a href="#" class="nav__register">Generate</a>
                     <button class="nav__login" type="submit">Save Password</button>
                     <p class="success__message"></p>
                 </form>
             </div>
-            <div class="hide dashboard__view--password">
+            <div class="dashboard__view--password">
                 <table class="password--table">
-                    <tr>
-                        <th>Website</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>del</th>
-                    </tr>
-                    <!-- <tr>
-                        <td>dummy</td>
-                        <td>dummy</td>
-                        <td>dummy</td>
-                        <td>
-                            <button class="delete_password" type="submit">Delete</button>
-                        </td>
-                    </tr> -->
+                    <thead>
+                        <tr>
+                            <th>Website</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Passwords will be dynamically added here -->
+                    </tbody>
                 </table>
             </div>
-            <div class="hide dashboard__search--password">
+            <div class="dashboard__search--password">
                 <table class="password--table search__pass--table">
-                    <tr>
-                        <th colspan="3"><label>
-                            <input placeholder="Search for a website" class="search_password_input"
-                                    type="text">
-                        </label></th>
-                        <th><button class="search_password" type="submit">Search</button></th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th colspan="3">
+                                <input placeholder="Search for a website" class="search_password_input" type="text">
+                            </th>
+                            <th><button class="search_password" type="submit">Search</button></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Searched passwords will be dynamically added here -->
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
+
