@@ -1,42 +1,97 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>PassWarden Password Manager</title>
+    <style>
+        /* Basic animations */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav__logo img, .main__image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .nav__logo img:hover, .main__image img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav__buttons a {
+            background-color: #0f5cd2;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav__buttons a:hover {
+            background-color: #0f5cd2;
+        }
+
+        .main__wrapper {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body class="home--body">
     <nav class="nav">
         <figure class="nav__logo">
-            <a href="{{url_for('home')}}">
-                <img src="images/Logo2.jpeg" alt="PassWarden" />
+            <a href="{{ url_for('home') }}">
+                <img src="/static/images/Logo2.jpeg" alt="PassWarden" />
             </a>
         </figure>
         <div class="nav__buttons">
-            <a href="{{url_for('login')}}" class="nav__login">log in</a>
-            <a href="{{url_for('register')}}" class="nav__register">register</a>
+            <a href="{{ url_for('login') }}" class="nav__login">Log In</a>
+            <a href="{{ url_for('register') }}" class="nav__register">Register</a>
         </div>
     </nav>
     <main class="main">
         <figure class="main__image">
-            <img src="images/header.jpeg" alt="/">
+            <img src="/static/images/Data_security_01.jpg" alt="Secure Data" />
         </figure>
         <div class="main__wrapper">
             <p class="main__paragraph">
-                Have trouble remembering your passwords?
-                Need a safe and reliable way to create and store password for all of your accounts?
-                Welcome to <span>PassWarden</span>, a digital warden here to keep you and your passwords safe.
-                Let's get started!
+                🔐 <strong>Welcome to <span>PassWarden</span>!</strong> 🔐
+                <br>
+                Struggling to juggle all your passwords? Look no further!
+                PassWarden is your new digital sidekick, guarding your
+                passwords with knight-like devotion. Dive into a world where
+                creating and storing passwords is not just safe but super easy.
+                Ready to simplify your digital life? Let’s get cracking!
             </p>
             <div class="main__button">
-                <a href="{{url_for('register')}}" class="nav__register">register now</a>
+                <a href="{{ url_for('register') }}" class="nav__register">Register Now</a>
             </div>
         </div>
     </main>
 </body>
-
 </html>
