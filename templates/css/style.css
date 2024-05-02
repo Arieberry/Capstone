@@ -129,7 +129,7 @@ button{
 
 /* ------------------- login page --------------------- */
 .login--body{
-    background-image: url("../images/login-background.svg");
+    background-image: url("/static/images/login-background.svg");
 	background-repeat: repeat no-repeat;
 	background-position: center top;
 	background-size: 100% auto;
@@ -321,12 +321,12 @@ button.nav__login{
     border: 0.3vw solid var(--aqua-marine);
     border-inline-end: none;
     text-align: center;
-    background-color: #323f87;
+    background-color: #0e1641;
     color: white;
     cursor: pointer;
 }
 .active{
-    color: hsl(231, 46%, 36%);
+    color: hsl(231, 65%, 15%);
     background-color: white;
 }
 
